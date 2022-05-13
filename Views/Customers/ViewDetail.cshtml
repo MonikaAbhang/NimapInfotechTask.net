@@ -1,0 +1,27 @@
+﻿@model NipamInfotechTask.Models.Customer
+
+@{
+    ViewData["Title"] = "View page";
+}
+
+<h4>View Details of Customer</h4>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+    </dl>
+</div>
+<div>  
+    <a asp-controller="Customers" asp-action="Index" class="btn btn-primary"> <i class="fa fa-sign-out" style="font-size:19px">Back to List</i></a>
+</div>

@@ -1,0 +1,76 @@
+﻿--------------1.UpdateProduct-----------
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[UpdateProduct]
+(
+	@ProductId int,
+		@ProductName varchar(10)
+)
+as
+begin UPDATE Products
+SET
+ ProductId=@ProductId,ProductName=@ProductName,
+		where ProductId = @ProductId
+end
+--------------2.DelteteProduct-----------
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[DelteteProduct]
+(
+	@ProductId int
+)
+AS
+BEGIN
+DELETE from Products WHERE ProductId=@ProductId
+END
+GO
+----------------3.InsertProduct------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[InsertProduct]
+(
+	@ProductId int,
+		@ProductName varchar(10)
+)
+as
+begin
+	insert into Products(ProductId,ProductName) values(@ProductId,@ProductNname)
+end
+GO
+----------------------------------------
+ SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[InsertProduct]
+(
+	@ProductId int,
+		@ProductName varchar(10)
+)
+as
+begin
+	insert into Products(ProductId,ProductName) values(@ProductId,@ProductName)
+end
+GO
+------------------------------------GetCustomerById-----------------------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create procedure [dbo].[GetProductById]
+(
+	@ProductId int
+)
+as
+begin select * from Products
+		where ProductId = @ProductId
+end

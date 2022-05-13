@@ -1,0 +1,76 @@
+﻿--------------1.UpdateCustomer-----------
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[UpdateCustomer]
+(
+	@CustomerId int,
+		@CustomerName varchar(10)
+)
+as
+begin UPDATE Customers
+SET
+ CustomerId=@CustomerId,CustomerName=@CustomerName,
+		where CustomerId = @CustomerId
+end
+--------------2.DelteteCustomer-----------
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[DelteteCustomer]
+(
+	@CustomerId int
+)
+AS
+BEGIN
+DELETE from Customers WHERE CustomerId=@CustomerId
+END
+GO
+----------------3.InsertCustomer------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[InsertCustomer]
+(
+	@CustomerId int,
+		@CustomerName varchar(10)
+)
+as
+begin
+	insert into Customers(CustomerId,CustomerName) values(@CustomerId,@CustomerNname)
+end
+GO
+----------------------------------------
+ SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[InsertCustomer]
+(
+	@CustomerId int,
+		@CustomerName varchar(10)
+)
+as
+begin
+	insert into Customers(CustomerId,CustomerName) values(@CustomerId,@CustomerNname)
+end
+GO
+------------------------------------GetCustomerById-----------------------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create procedure [dbo].[GetCustomerById]
+(
+	@CustomerId int
+)
+as
+begin select * from Customers
+		where CustomerId = @CustomerId
+end

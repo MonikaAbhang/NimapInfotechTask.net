@@ -1,0 +1,32 @@
+﻿
+@model IEnumerable<NipamInfotechTask.Models.AllList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+ 
+<h2>Authors</h2>
+<p>
+    <table class="table" border=1 >
+                <thead style="background-color:#adadad; width:auto">
+                    <tr height=50px>
+                        <th>Product Id</th>
+                        <th>ProductName</th>
+                    </tr>
+                </thead>
+                    @if (Model != null)
+                    {
+                    <tbody>
+                            @foreach (var allList in Model)
+                            {
+                            <tr height=30px>
+                                <td>@allList.ProductId</td>
+                                <td>@allList.ProductName</td>
+                                <td>@allList.CustomerId</td>
+                                <td>@allList.CustomerName</td>
+                            </tr>
+                            }
+                    </tbody>
+                    }
+            </table>
+      

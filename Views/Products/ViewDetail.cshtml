@@ -1,0 +1,28 @@
+﻿@model NipamInfotechTask.Models.Product
+
+@{
+    ViewData["Title"] = "View page";
+}
+
+<h4>View Details of Product</h4>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+    </dl>
+</div>
+<div>
+   
+    <a asp-controller="Products" asp-action="Index" class="btn btn-primary"> <i class="fa fa-sign-out" style="font-size:19px">Back to List</i></a>
+</div>

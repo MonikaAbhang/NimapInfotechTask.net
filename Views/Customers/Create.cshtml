@@ -1,0 +1,52 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "New Customer";
+}
+<table class="CreateTable">
+    <form asp-action="Create" method="post">
+    <tr>
+        <td colspan=2 height=50px>
+                       <h4 style="color:#0077b3">Add Product</h4>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>CustomerId</b>
+        </td>
+        <td>
+            <div class="mb-3">
+                    @Html.TextBoxFor(m => m.CustomerId)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b> CustomerName</b>
+        </td>
+        <td>
+            <div class="mb-3">
+                    @Html.TextBoxFor(m => m.CustomerName)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan=2>
+            <button asp-controller="Customers" asp-action="Create" onclick="confirmsave()" class="btn alert-info">Add Customer</button>
+        </td>
+    </tr>
+    </form>
+</table>
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+<script type="text/javascript">
+    function confirmsave() {
+        Swal.fire({
+            title: "Customer Added Succesfully!!!!",
+            confirmButtonText: 'Ok',
+            confirmButtonColor:"green",
+            RedirectActionTo:"Index"
+        })
+    }
+</script>
+}
+

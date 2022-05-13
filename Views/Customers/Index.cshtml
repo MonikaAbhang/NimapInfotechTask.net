@@ -1,0 +1,65 @@
+﻿
+@model IEnumerable<NipamInfotechTask.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+ 
+<h2>Authors</h2>
+<p>
+    <a asp-action="Create" class="btn btn-outline-secondary">Create New</a> 
+    <table class="tableUser" border=1 >
+                <thead style="background-color:#adadad; width:auto">
+                    <tr height=50px>
+                        <th>Customer Id</th>
+                        <th>Customer Name</th>
+                    </tr>
+                </thead>
+                    @if (Model != null)
+                    {
+                    <tbody>
+                            @foreach (var customer in Model)
+                            {
+                            <tr height=30px>
+                                <td>@customer.CustomerId</td>
+                                <td>@customer.CustomerName</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a style="width:90px;height:35px" asp-controller="Customers" asp-action="ViewDetail" asp-route-loginId="@customer.CustomerId"
+                                   class="btn btn-danger"><i class="fa fa-eye" aria-hidden="true"></i>Detail</a>
+                                        <div class="btn-group">
+                                            <a style="width:90px;height:35px" asp-controller="Customers" asp-action="Edit" asp-route-loginId="@customer.CustomerId"
+                                       class="btn btn-secondary"><i class="fa fa-edit" style="font-size:17px"> Edit</i></a>
+                                            <a style="width:90px;height:35px" asp-controller="Customers" asp-action="Delete" asp-route-loginId="@customer.CustomerId"
+                                       class="btn btn-danger"
+                                       onclick="confirmDelete(this.href);return false">
+                                                <i class="fa fa-trash-o" style="font-size:17px"> Delete</i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                    </tbody>
+                    }
+            </table>
+      
+
+@section Scripts
+{
+<script type="text/javascript">
+    function confirmDelete(href) {
+        Swal.fire({
+            title: "Do you want to delete the Customer?",
+            showCancelButton: true,
+            confirmButtonText: 'Ok',
+            confirmButtonColor:"green",
+             CancelButtonColor:"red",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = href;
+            }
+        })
+    }
+</script>
+}
